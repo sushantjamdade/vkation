@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+	<head>
+	</head>
+	<body ng-app="vkationapp">
+		<div id="header_wrapper" ng-controller="vkationcontroller">
+	<div class="container-fluid">
+		<div id="video-container">
+			<%= video_tag "Paris.mp4", autoplay: true %>		    
+			<div class="row"style="margin:0px;">
+				<div class="col-lg-12" style="margin:0px; padding:0px;">
+					<div class="header">
+						<div class="col-lg-3" style="margin:0px; padding:0px;">
+							<div class="header_left">
+								<%= image_tag "logo-A.jpg" ,:size => "185x165"%>
+							</div>
+						</div>
+						<div class="col-lg-9">
+							<div class="header_right">
+								<ul>
+									<li>Log in</li>
+									<li>Sign Up</li>
+									<li>Help</li>
+									<li class="last">Become a Host</li>
+								</ul>
+							</div>
+						</div>	
+						<div class="clear">&nbsp;</div>
+						<div class="header_content" ng-show="headertitle">
+							<h1>START YOUR VACATION NOW!</h1>
+							<span class="gap-one">&nbsp;</span>
+							<h2>What are you looking for?</h2>
+							<span class="gap-two">&nbsp;</span>
+						</div>
+						<div class="col-lg-12" ng-show="headerimg">
+							<div class="header_images">
+								<ul class="list">
+									<li>
+										<a  ng-click="resorts()"><%= image_tag "Resorts-1.jpg"%></a>										
+									</li>
+									<li>
+										<%= image_tag "Holiday-1.jpg"%>										
+									</li>
+									<li>
+										<%= image_tag "Activities-1.jpg"%>										
+									</li>
+								</ul>
+								<div class="clear">&nbsp;</div>
+							</div>
+						</div>	
+						
+						<!-- Resort Form display START-->
+						<div style="width:80%;margin: 0 auto 0 auto;" ng-show="resort">
+							<div class="col-xs-12 col-sm-12">
+								<div class="resort-from">
+									<form action="check.php" method="post" autocomplete="off" enctype="multipart/form-data" name="recommendForm" id="recommendForm">
+										<div>
+											<div class="col-xs-12 col-sm-12 header_container">
+												<h1 class="col-xs-12 col-sm-12">RESORTS</h1>
+												<h6 class="col-xs-12 col-sm-12" style="padding: 0px 0px 0px 0px;">
+													<!--a href="index.php">Back</a-->
+												</h6>
+											</div>
+											<div class="col-xs-12 col-sm-12">
+												<select id="place" name="place" class="col-xs-3 col-sm-3 custom-select">
+													<option value="Karnataka">Karnataka</option>
+													<option value="Bengaluru">Bengaluru</option>
+													<option value="Mysore">Mysore</option>
+													<option value="Mangalore">Mangalore</option>
+													<option value="Bellary">Bellary</option>
+													<option value="Shimoga">Shimoga</option>
+													<option value="Raichur">Raichur</option>
+													<option value="Udupi">Udupi</option>
+													<option value="Bhadravati">Bhadravati</option>
+													<option value="Mandya">Mandya</option>
+												</select>
+												<input type="text" name="fromd" id ="fromd" placeholder="From Date" class="col-xs-3 col-sm-3 custom-input" />
+												<input type="text" name="tod" id ="tod" placeholder="To Date" class="col-xs-3 col-sm-3 custom-input" />	
+												<select id="guests" name="guests" class="col-xs-3 col-sm-3 custom-select">
+													<option value="1 Guest">1 Guest</option>
+													<option value="2 Guest">2 Guests</option>
+													<option value="3 Guest">3 Guests</option>
+													<option value="4 Guest">4 Guests</option>
+													<option value="5 Guest">5 Guests</option>
+													<option value="6 Guest">6 Guests</option>
+													<option value="7 Guest">7 Guests</option>
+													<option value="8 Guest">8 Guests</option>
+													<option value="9 Guest">9 Guests</option>
+													<option value="10 Guest">10 Guests</option>
+												</select>
+											</div>
+											<span class="gapt" style="clear:both;">&nbsp;</span>
+											<div class="col-xs-12 col-sm-12 column-row">
+												<select id="budget" name="budget" class="col-xs-3 col-sm-3 custom-select">
+													<option value="">Choose your Budget</option>
+													<option value="10000/- to 20000/-">10000/- to 20000/-</option>
+													<option value="20000/- to 30000/-">20000/- to 30000/-</option>
+													<option value="30000/- to 40000/-">30000/- to 40000/-</option>
+													<option value="40000/- to 50000/-">40000/- to 50000/-</option>
+													<option value="50000/- to 60000/-">50000/- to 60000/-</option>
+													<option value="60000/- to 70000/-">60000/- to 70000/-</option>
+													<option value="70000/- to 80000/-">70000/- to 80000/-</option>
+													<option value="80000/- to 90000/-">80000/- to 90000/-</option>
+													<option value="90000/- to 100000/-">90000/- to 100000/-</option>
+												</select>
+												<div class="col-xs-9 col-sm-9 column-cell-rt" style="padding: 0px 0px 0px 0px;">
+													<div class="col-xs-12 col-sm-12" style="padding: 0px 0px 0px 0px;">
+														<div class="star col-xs-4 col-sm-4">
+															<span>Choose your Accomm Type</span>
+														</div>
+														<div class="col-xs-8 col-sm-8">
+															<div class="col-xs-12 col-sm-12" style="padding: 0px 0px 0px 0px;">
+																<label class="star"><input type="radio" name="star" id="star" value="fivestar" /><img src="images/5star.png" /></label>
+																<label class="star"><input type="radio" name="star" id="star" value="fourstar" /><img src="images/4star.png" /></label>
+																<label class="star"><input type="radio" name="star" id="star" value="threestar" /><img src="images/3star.png" /></label>
+																<label class="starlabel"><input type="radio" name="star" id="star" value="Home Stay" /><span>Home Stay</span></label>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<span class="gapt" style="clear:both;">&nbsp;</span>
+											<div class="col-xs-12 col-sm-12 column">
+												<input type="submit" class="col-xs-3 col-sm-3 custom-button" name="priorities" value="BEST DEALS" />
+												<input type="submit" class="col-xs-5 col-sm-5 custom-button" name="helpus" value="PERSONALISED RECOMMENDATION FOR YOU" />
+												<a href="#"  onclick="MM_openBrWindow('getaquote.php','formtarget','width=600,height=395,overflow:hidden')" class="col-xs-4 col-sm-4 custom-button">GET A QUOTE</a>
+											</div>
+										</div>
+									</form>							
+									<div class="clear">&nbsp;</div>
+								</div>
+							</div>	
+						</div>
+						<!-- Resort Form display END-->
+						<div class="clear">&nbsp;</div>
+						
+						
+						
+						
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%# header code ends here%>
+
+<%# content code start from here%>
+<div class="fullcontentwrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div id="content_wrapper">
+					<div class="content">
+						<div class="col-md-4"style="padding-right:0px;">
+							<div class="box1">
+								<div class="toptext">
+									Hosting opens up a world of opportunity
+								</div>
+								<div class="paratext">
+								Earn money sharing your extra space with travelers.
+								</div>
+								<div class="orrangebutton">
+									See What You Can Earn
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="col-md-8"style="padding-left:0px;">
+						<div class="box2">
+							<%= image_tag "lady.jpg"%>
+							
+						</div>
+						</div>	
+						<div class="clear"></div>
+						<div class="justheadtext">
+							Just for the weekend
+						</div>
+						<div class="justforpara">
+						Discover new, Inspiring Places Close to Home.
+						</div>
+						<div class="box3wrapper">
+							<div class="col-md-4">
+								<div class="box3right">
+									<%= image_tag "bangalore_resort1.jpg"%>											
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="box3middle">
+								<%= image_tag "explore_beaches-1.jpg"%>		
+								</div>
+							</div>	
+							<div class="col-md-4">
+								<div class="box3left">
+								<%= image_tag "heritage_tours-1.jpg"%>
+								
+												
+								</div>
+							</div>	
+							<div class="clear">
+							</div>
+						</div>
+						<div class="col-md-4">
+						</div>
+						<div class="col-md-4"style="margin:0px;padding:0px;">
+							<div class="buttongray">
+							See all destinations
+							</div>
+						</div>
+						<div class="col-md-4"style="margin:0px;padding:0px;">
+						</div>
+						<div class="col-md-12">
+							<div class="destinationhead">
+								Destinations
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="destinationsub">
+								Discover new, Inspiring Places Close to Home. 
+							</div>
+						</div>	
+						<div class="clear"></div>
+						<div class="box4wrapper">
+							<div class="col-md-8">
+								<div class="box4right">
+								<%= image_tag "coorg-1.jpg"%>	
+									<img src="images/coorg-1.jpg">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="box4left">
+								<%= image_tag "bylakuppe-1.jpg"%>	
+								</div>
+							</div>	
+							<div class="clear"></div>
+						</div>
+						
+						<div class="box3wrapper">
+							<div class="col-md-4">
+								<div class="box3right">
+								<%= image_tag "chikmangalur-1.jpg"%>			
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="box3middle">
+								<%= image_tag "mysore-1.jpg"%>			
+								</div>
+							</div>	
+							<div class="col-md-4">
+								<div class="box3left">
+								<%= image_tag "bangalore-1.jpg"%>			
+								</div>
+							</div>	
+							<div class="clear">
+							</div>
+						</div>
+						<div class="box5wrapper">
+							<div class="col-md-4">
+								<div class="box3right">
+								<%= image_tag "sakleshpur-1.jpg"%>	
+								</div>
+							</div>	
+							<div class="col-md-8">
+								<div class="box5right">
+								<%= image_tag "hampi-1.jpg"%>	
+								</div>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="box3wrapper">
+							<div class="col-md-4">
+								<div class="box3right">
+								<%= image_tag "romantic_holiday1.jpg"%>			
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="box3middle">
+								<%= image_tag "channapatna1.jpg"%>	
+										
+								</div>
+							</div>	
+							<div class="col-md-4">
+								<div class="box3left">
+								<%= image_tag "nrityagram1.jpg"%>	
+									
+								</div>
+							</div>	
+							<div class="clear">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+
+<%# content code ends from here%>
+
+<%# Footer code starts from here%>
+
+<div id="footer_wrapper">
+	<div class="footer">
+		<div class="footerright1">
+			<ul>
+				<li><div class="hedingfooter">Company</div></li>
+				<li><div class="footertext">About</div></li>
+				<li><div class="footertext">Careers</div></li>
+				<li><div class="footertext">Press</div></li>
+				<li><div class="footertext">Blog</div></li>
+				<li><div class="footertext">Help</div></li>
+				<li><div class="footertext">Policies</div></li>
+				<li><div class="footertext">Disaster Response</div></li>
+				<li><div class="footertext">Terms & Privacy</div></li>
+			</ul>
+		</div>
+		<div class="footerright1">
+			<ul>
+				<li><div class="hedingfooter">Discover</div></li>
+				<li><div class="footertext">Trust & Safety</div></li>
+				<li><div class="footertext">Invite Friends</div></li>
+				<li><div class="footertext">Gift Cards</div></li>
+				<li><div class="footertext">Our Picks</div></li>
+				<li><div class="footertext">Mobile</div></li>
+				<li><div class="footertext">Site Maps</div></li>
+				
+			</ul>
+		</div>
+		<div class="footerright1">
+			<ul>
+				<li><div class="hedingfooter">Hosting</div></li>
+				<li><div class="footertext">Why Host</div></li>
+				<li><div class="footertext">Hospitality</div></li>
+				<li><div class="footertext">Responsible Hosting</div></li>
+				<li><div class="footertext">Home Safety</div></li>
+			</ul>
+		</div>
+		
+	</div>
+	<div class="clear"></div>
+	<div class="joinus">
+		Join Us On
+	</div>
+	<div class="socialimages">
+	<%= image_tag "icon-fb.png"%>	
+	<%= image_tag "icon-google.png"%>	
+	<%= image_tag "icon-instagram.png"%>	
+	<%= image_tag "icon-pinterest.png"%>	
+	<%= image_tag "icon-twitter.png"%>	
+	
+	
+	</div>
+</div>	
+
+
+
+
+	</body>
+</html>
