@@ -1,19 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
 
 *
 {
@@ -126,13 +110,10 @@ body
 	width: 100%;
 	height: 0px;
 }
-/***************************Header CSS Starts Here**************************/
+
 #header_wrapper
 {
-	/*padding-bottom: 50px;
-	text-align: center;
-	background: url(../images/header.jpg) no-repeat center center;
-	background-size: cover;*/
+	
 }
 
 .header
@@ -358,8 +339,6 @@ video.fillWidth
 }
 
 
-/***************************Header CSS Ends Here**************************/
-
 .org-btn
 {
 	display: block;
@@ -398,7 +377,6 @@ video.fillWidth
    border: 5px solid #FFF;
 }
 
-/***************************Resort Form Css Starts Here***********************/
 .resort-from
 {
 	margin: 0px auto 0px auto;
@@ -448,7 +426,7 @@ video.fillWidth
 
 .column-row .column-cell-rt
 {
-	/*width: 73.7%;*/
+	
 	height: 40px;
 	display: table-cell;
 	margin: 0px 0px 0px 0px;
@@ -460,7 +438,7 @@ video.fillWidth
 
 .column-row .column-cell-rt span
 {
-	/*padding: 8px 10px 8px 10px;*/
+	
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
 	color: #565a5c;
@@ -477,7 +455,7 @@ video.fillWidth
 	padding: 13px 10px 13px 10px;
 	margin: 0px 0px 0px 0px;
 	vertical-align: top;
-	/*float: none;*/
+	
 }
 
 .column-row .column-cell-rt .starlabel input[type="radio"]
@@ -1313,7 +1291,6 @@ video.fillWidth
 	font-size: 15.81px;
 	display: inline-block;
 	height: 40px;
-	/*width: 25.42%; */
 	line-height: 30px;
 	text-decoration:none;
 	text-transform: uppercase;
@@ -1335,7 +1312,7 @@ video.fillWidth
 	font-size: 15.81px;
 	display: inline-block;
 	height: 40px;
-	/*width: 25.42%; */
+	
 	line-height: 30px;
 	text-decoration:none;
 	text-transform: uppercase;
@@ -1357,7 +1334,7 @@ video.fillWidth
 	font-size: 15.81px;
 	display: inline-block;
 	height: 40px;
-	/*width: 25.42%;*/ 
+	
 	line-height: 30px;
 	text-decoration:none;
 	text-transform: uppercase;
@@ -1379,7 +1356,6 @@ video.fillWidth
 	font-size: 15.81px;
 	display: inline-block;
 	height: 40px;
-	/*width: 25.42%; */
 	line-height: 30px;
 	text-decoration:none;
 	text-transform: uppercase;
@@ -1648,9 +1624,6 @@ share-button .active:hover
 }
 
 
-/***************************Resort Form Css Ends Here*************************/
-
-/***********************Content Css Starts Here***********************/
 
 .fullcontentwrapper
 {
@@ -1891,9 +1864,7 @@ share-button .active:hover
 	margin-right: auto;
 	margin-left: auto;
 }
-/***********************Content Css Ends Here***********************/
 
-/***********************Footer Section Starts Here***********************/
 #footer_wrapper
 {
 	margin:0px auto 0px auto;
@@ -1992,10 +1963,6 @@ share-button .active:hover
 	margin: 0px 0px 30px 0px;
 }
 
-/***********************Footer Section Ends Here***********************/
-
-
-/*********************Priorities-Content Css Starts Here*********************/
 .priorities-fullcontentwrapper
 {
 	background-color: #E5E6E9;
@@ -2229,7 +2196,7 @@ share-button .active:hover
 	background-color: #E5E6E9;
 }
 
-/*********************Priorities-Content Css Ends Here*********************/
+
 
 #resorts_header_wrapper
 {
@@ -2253,8 +2220,6 @@ share-button .active:hover
 	margin: 0px 0px 0px 0px;
 	overflow: hidden;
 }
-
-/***********************Rooms-Content Css Starts Here***********************/
 
 #rooms_header_wrapper
 {
@@ -4337,9 +4302,7 @@ share-button .active:hover
 	color: #6e6f71;
 	line-height: 0px;
 }
-/***********************Rooms-Content Css Ends Here***********************/
 
-/***********************RBooking-Content Css Starts Here***********************/
 
 #rbooking_header_wrapper
 {
@@ -4842,10 +4805,7 @@ share-button .active:hover
    margin: 0 0 0 0;
 }
 
-/***********************RBooking-Content Css Ends Here***********************/
 
-
-/***********************ORbooking-Content Css Starts Here***********************/
 
 #orbooking_header_wrapper
 {
@@ -5348,9 +5308,7 @@ share-button .active:hover
    margin: 0 0 0 0;
 }
 
-/***********************ORbooking-Content Css Ends Here***********************/
 
-/***********************OR-Rooms-Content Css Starts Here***********************/
 
 #or_rooms_header_wrapper
 {
@@ -7612,16 +7570,10 @@ share-button .active:hover
 	color: #6e6f71;
 	line-height: 0px;
 }
-/***********************OR-Rooms-Content Css Ends Here***********************/
 
-
-/***********************Cyp-Priorities-Content Css Starts Here***********************/
 #cyp_header_wrapper
 {
-	/*padding-bottom: 50px;
-	text-align: center;
-	background: url(../images/header.jpg) no-repeat center center;
-	background-size: cover;*/
+	
 }
 
 .cyp-priorities-fullcontentwrapper
@@ -7813,7 +7765,6 @@ share-button .active:hover
 	float: right;
 }
 
-/***********************Cyp-Priorities-Content Css Ends Here***********************/
 
 
 .atc-tr
@@ -7938,7 +7889,6 @@ share-button .active:hover
 
 
 
-/*Facebook-Button Popup Window Css Starts Here*/
 .black_overlay
 {
 	display: none;
@@ -7993,9 +7943,6 @@ share-button .active:hover
 	cursor: pointer;
 }
 
-/*Facebook-Button Popup Window Css Ends Here*/
-
-/***********************FireFox Css Starts Here***********************/
 
 @-moz-document url-prefix()
 {
@@ -8073,7 +8020,6 @@ share-button .active:hover
 		height: 100%;
 	}
 }
-/***********************FireFox Css Ends Here***********************/
 
 
 
