@@ -17,7 +17,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require angular
-//= require angular-ui-router
 //= require_tree
 
 var vkationapp1 = angular.module('vkationapp',[])
