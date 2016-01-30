@@ -47,13 +47,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'rails_12factor', group: :production
 
-group :development do
+group :development, :test do
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3-ruby'
 end
 
 group :production do
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 end
-
