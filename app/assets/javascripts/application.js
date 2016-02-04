@@ -19,7 +19,7 @@
 //= require angular
 
 
-var vkationapp1 = angular.module('vkationapp',[])
+vkationapp1 = angular.module('vkationapp',[])
 vkationapp1.controller('vkationcontroller', function ($scope, $http) 
 {
 	$scope.headertitle=true;
