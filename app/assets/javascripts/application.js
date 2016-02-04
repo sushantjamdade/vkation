@@ -17,7 +17,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require angular
-//= require_tree
+
 
 var vkationapp1 = angular.module('vkationapp',[])
 vkationapp1.controller('vkationcontroller', function ($scope, $http) 
