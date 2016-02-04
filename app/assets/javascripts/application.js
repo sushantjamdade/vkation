@@ -18,18 +18,3 @@
 //= require bootstrap-sprockets
 //= require angular
 
-
-var vkationapp1 = angular.module('vkationapp',[])
-vkationapp1.controller('vkationcontroller', function ($scope, $http) 
-{
-	$scope.headertitle=true;
-	$scope.headerimg=true;
-	$scope.resort=false;
-	$scope.resorts = function() 
-	{
-		$scope.headertitle=false;
-		$scope.headerimg=false;
-		$scope.resort=true;
-	}
-	
-});
