@@ -20,11 +20,12 @@
 
 
 vkationapp1 = angular.module('vkationapp',[])
-vkationapp1.controller('vkationcontroller', function ($scope, $http) 
+vkationapp1.controller('vkationcontroller',['$scope', '$http', function ($scope, $http) 
 {
 	$scope.headertitle=true;
 	$scope.headerimg=true;
 	$scope.resort=false;
+	
 	$scope.resorts = function() 
 	{
 		$scope.headertitle=false;
@@ -32,4 +33,4 @@ vkationapp1.controller('vkationcontroller', function ($scope, $http)
 		$scope.resort=true;
 	}
 	
-});
+}]);
