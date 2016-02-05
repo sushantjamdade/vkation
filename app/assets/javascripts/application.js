@@ -19,7 +19,7 @@
 //= require angular
 
 
-vkationapp1 = angular.module('vkationapp',[])
+/*vkationapp1 = angular.module('vkationapp',[])
 vkationapp1.controller('vkationcontroller',['$scope', '$http', function ($scope, $http) 
 {
 	$scope.headertitle=true;
@@ -33,4 +33,29 @@ vkationapp1.controller('vkationcontroller',['$scope', '$http', function ($scope,
 		$scope.resort=true;
 	}
 	
+}]);
+*/
+
+var vkationapp1 = angular.module('vkationapp',[])
+vkationapp1.controller('vkationcontroller',['$scope', '$http', function ($scope, $http) 
+{
+	$scope.headertitle = true;
+	$scope.headerimg = true;
+	$scope.resort = false;
+	$scope.swcyvp = false;
+	$scope.accommodation = function() 
+	{
+		$scope.headertitle = false;
+		$scope.headerimg = false;
+		$scope.resort = true;
+		$scope.swcyvp = false;
+	}
+	
+	$scope.cfcyvp = function() 
+	{
+		$scope.headertitle = false;
+		$scope.headerimg = false;
+		$scope.resort = false;
+		$scope.swcyvp = true;
+	}
 }]);

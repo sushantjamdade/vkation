@@ -111,10 +111,8 @@ body
 	width: 100%;
 	height: 0px;
 }
-
 #header_wrapper
 {
-	
 }
 
 .header
@@ -340,6 +338,7 @@ video.fillWidth
 }
 
 
+
 .org-btn
 {
 	display: block;
@@ -388,11 +387,8 @@ video.fillWidth
 
 .column-row
 {
-	display: table;
-	width: 80%;
 	vertical-align: top;
 	margin: 0px auto 0px auto;
-	padding: 0px 26px 0px 26px;
 }
 
 .column-row .column-cell-lt
@@ -427,7 +423,7 @@ video.fillWidth
 
 .column-row .column-cell-rt
 {
-	
+
 	height: 40px;
 	display: table-cell;
 	margin: 0px 0px 0px 0px;
@@ -439,7 +435,6 @@ video.fillWidth
 
 .column-row .column-cell-rt span
 {
-	
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
 	color: #565a5c;
@@ -456,7 +451,7 @@ video.fillWidth
 	padding: 13px 10px 13px 10px;
 	margin: 0px 0px 0px 0px;
 	vertical-align: top;
-	
+
 }
 
 .column-row .column-cell-rt .starlabel input[type="radio"]
@@ -1178,7 +1173,6 @@ video.fillWidth
 	font-size: 16px;
 	display: inline-block;
 	height: 40px;
-	width: 20%;
 }
 
 .custom-select
@@ -1198,7 +1192,6 @@ video.fillWidth
 	font-size: 16px;
 	display: inline-block;
 	height: 40px;
-	width: 16%;
 }
 
 .in-cloumn
@@ -1292,10 +1285,11 @@ video.fillWidth
 	font-size: 15.81px;
 	display: inline-block;
 	height: 40px;
+
 	line-height: 30px;
 	text-decoration:none;
 	text-transform: uppercase;
-	text-align: left;
+	text-align: center;
 }
 
 .custom-button:hover
@@ -1313,11 +1307,11 @@ video.fillWidth
 	font-size: 15.81px;
 	display: inline-block;
 	height: 40px;
-	
+
 	line-height: 30px;
 	text-decoration:none;
 	text-transform: uppercase;
-	text-align: left;
+	text-align: center;
 }
 
 .active, .active:visited, .active:active, .active:link, .active:focus
@@ -1335,7 +1329,7 @@ video.fillWidth
 	font-size: 15.81px;
 	display: inline-block;
 	height: 40px;
-	
+
 	line-height: 30px;
 	text-decoration:none;
 	text-transform: uppercase;
@@ -1357,6 +1351,7 @@ video.fillWidth
 	font-size: 15.81px;
 	display: inline-block;
 	height: 40px;
+	
 	line-height: 30px;
 	text-decoration:none;
 	text-transform: uppercase;
@@ -1738,7 +1733,7 @@ share-button .active:hover
 	font-weight: bold;
 	font-size: 16.67px;
 	color: #575350;
-	text-align: center;
+	text-align: justify;
 }
 
 .box3wrapper
@@ -1865,7 +1860,6 @@ share-button .active:hover
 	margin-right: auto;
 	margin-left: auto;
 }
-
 #footer_wrapper
 {
 	margin:0px auto 0px auto;
@@ -1880,7 +1874,7 @@ share-button .active:hover
 {
 	margin: 20px auto 0px auto;
 	padding: 0px 0px 0px 0px;
-	width: 39%;
+	width: 48%;
 	text-align: center;
 	display: block;
 }
@@ -1922,7 +1916,7 @@ share-button .active:hover
 {
 	padding: 0px 0px 30px 0px;
 	margin: 0px 0px 0px 0px;
-	width:33%;
+	width:60%;
 	float:left;
 	text-align:center;
 	list-style-type:none;
@@ -2198,7 +2192,6 @@ share-button .active:hover
 }
 
 
-
 #resorts_header_wrapper
 {
 	padding: 0px 0px 550px 0px;
@@ -2221,6 +2214,7 @@ share-button .active:hover
 	margin: 0px 0px 0px 0px;
 	overflow: hidden;
 }
+
 
 #rooms_header_wrapper
 {
@@ -7768,6 +7762,7 @@ share-button .active:hover
 
 
 
+
 .atc-tr
 {
 	display: block;
@@ -7945,6 +7940,7 @@ share-button .active:hover
 }
 
 
+
 @-moz-document url-prefix()
 {
 	.custom-select
@@ -8021,6 +8017,3 @@ share-button .active:hover
 		height: 100%;
 	}
 }
-
-
-
