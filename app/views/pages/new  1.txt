@@ -35,10 +35,10 @@
 										<a ng-click="accommodation()"><%= image_tag "Accommodation.png"%></a>
 									</li>
 									<li>
-										<a href="#"><%= image_tag "Activities.png"%>	</a>	
+										<a href="#"><%= image_tag "Activities.png"%></a>	
 									</li>
 									<li>
-										<a href="#"><%= image_tag "Weekend-Trip.png"%>	</a>
+										<a href="#"><%= image_tag "Weekend-Trip.png"%></a>
 									</li>
 								</ul>
 								<div class="clear">&nbsp;</div>
