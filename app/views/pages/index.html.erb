@@ -5,345 +5,546 @@
 		    <%= video_tag "Paris.mp4", autoplay: true %>	
 			<div class="row"style="margin:0px;">
 				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="margin:0px; padding:0px;">
-					<div class="header">
-						<div class="col-lg-3 col-xm-3 col-md-3 col-sm-3" style="margin:0px; padding:0px;">
-							<div class="header_left">
-								<%= image_tag "logo-A.jpg" ,:size => "185x165"%>
-							</div>
+					<div class="col-lg-3 col-xm-3 col-md-3 col-sm-3 header_left">
+						<%= image_tag "logo-A.jpg" ,:size => "185x165"%>
+					</div>
+					<div class="col-lg-9 col-xm-9 col-md-9 col-sm-9 header_right text-right">
+						<ul>
+							<li class="last">Become a Host</li>
+							<li>Help</li>
+							<li>Sign Up</li>
+							<li>Log in</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="margin:0px; padding:0px;">
+					<div class="header_content" ng-show="headertitle">
+						<h1>START YOUR VACATION NOW!</h1>
+						<span class="gap-one">&nbsp;</span>
+						<h2>What are you looking for?</h2>
+						<span class="gap-two">&nbsp;</span>
+					</div>
+				</div>
+				<div class="maxwidth">
+					<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" ng-show="headerimg">
+						<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4">
+							<a ng-click="accommodation()"><%= image_tag "Accommodation.png", :class=>"img-response"%></a>
 						</div>
-						<div class="col-lg-9 col-xm-9 col-md-9 col-sm-9">
-							<div class="header_right">
-								<ul>
-									<li>Log in</li>
-									<li>Sign Up</li>
-									<li>Help</li>
-									<li class="last">Become a Host</li>
-								</ul>
-							</div>
-						</div>	
-						<div class="clear">&nbsp;</div>
-						<div class="header_content" ng-show="headertitle">
-							<h1>START YOUR VACATION NOW!</h1>
-							<span class="gap-one">&nbsp;</span>
-							<h2>What are you looking for?</h2>
-							<span class="gap-two">&nbsp;</span>
+						<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4">
+							<a href="#"><%= image_tag "Activities.png" ,:class=>"img-response" %></a>
 						</div>
-						<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" ng-show="headerimg">
-							<div class="header_images">
-								<ul class="list">
-									<li>
-										<a ng-click="accommodation()"><%= image_tag "Accommodation.png"%></a>
-									</li>
-									<li>
-										<a href="#"><%= image_tag "Activities.png"%></a>	
-									</li>
-									<li>
-										<a href="#"><%= image_tag "Weekend-Trip.png"%></a>
-									</li>
-								</ul>
+						<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4">
+							<a href="#"><%= image_tag "Weekend-Trip.png" ,:class=>"img-response" %></a>
+						</div>
+					</div>
+				</div>
+				
+				<form method="post" autocomplete="off" enctype="multipart/form-data" name="recommendForm" id="recommendForm" ng-model="recommendForm" novalidate>
+				<!-- Resort Form display START-->
+					<div class="maxwidth" ng-show="resort">
+						<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12">
+							<div class="resort-from">
+									<div>
+										<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 header_container">
+											<h1 class="col-xs-12 col-sm-12">Accommodation</h1>
+										</div>
+										<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12">
+											<select id="place" name="place" ng-model="place" ng-options="place for place in placeArray" class="col-xs-3 col-sm-3 custom-select" required>
+												<option value="">Place</option>
+											</select>
+											<input type="date" name="fromd" id="fromd" ng-model="fromd" placeholder="Check In" required class="col-xs-3 col-sm-3 custom-input" />
+											<input type="date" name="tod" id="tod" ng-model="tod" placeholder="Check Out" required class="col-xs-3 col-sm-3 custom-input" />	
+											<select id="guests" name="guests"	ng-model="guests" ng-options="guests for guests in guestsArray" required class="col-xs-3 col-sm-3 custom-select">										
+												<option value="">Guest</option>
+											</select>
+										</div>
+										<span class="gapt" style="clear:both;">&nbsp;</span>
+										<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12">
+											<label class="col-lg-2 col-xm-2 col-md-2 col-sm-2 custom-input"><span>Price Range<output></output></span></label>
+											<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 custom-input">
+												<input type="range" id="budget" name="budget" ng-model="budget" data-rangeSlider value="0" min="1000" max="100000">
+												<output></output>
+											</div>
+											<div class="col-lg-6 col-xm-6 col-md-6 col-sm-6 column-cell-rt" style="padding: 0px 0px 0px 0px;">
+												<div class="col-lg-3 col-xm-3 col-md-3 col-sm-3 text-center" style="padding: 0px 0px 0px 0px;">
+													<label class="starlabel"><span>Resort</span>&nbsp;<input type="radio" name="star" id="star" ng-model="star" value="Resort" /></label>
+												</div>
+												<div class="col-lg-3 col-xm-3 col-md-3 col-sm-3 text-center" style="padding: 0px 0px 0px 0px;">
+													<label class="starlabel"><span>Home Stay</span>&nbsp;<input type="radio" name="star" id="star" ng-model="star" value="Home Stay" /></label>
+												</div>
+											</div>
+										</div>
+										<span class="gapt" style="clear:both;">&nbsp;</span>
+										<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12">
+											<input type="button" class="col-xs-12 col-sm-12 orn-btn-active text-center" name="cyvp" id="cyvp" ng-click="cfcyvp()" value="CREATE YOUR VACATION PACKAGE" />
+										</div>
+									</div>							
 								<div class="clear">&nbsp;</div>
 							</div>
 						</div>	
-						
-						<!-- Resort Form display START-->
-						<div style="width:80%;margin: 0 auto 0 auto;" ng-show="resort">
-							<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12">
-								<div class="resort-from">
-									<form method="post" autocomplete="off" enctype="multipart/form-data" name="recommendForm" id="recommendForm" ng-model="recommendForm" novalidate>
-										<div>
-											<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 header_container">
-												<h1 class="col-xs-12 col-sm-12">Accommodation</h1>
-											</div>
-											<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12">
-												<select id="place" name="place" ng-model="place" class="col-xs-3 col-sm-3 custom-select">
-													<option value="">Place</option>
-													<option value="Bengaluru">Bengaluru</option>
-													<option value="Mysore">Mysore</option>
-													<option value="Mangalore">Mangalore</option>
-													<option value="Bellary">Bellary</option>
-													<option value="Shimoga">Shimoga</option>
-													<option value="Raichur">Raichur</option>
-													<option value="Udupi">Udupi</option>
-													<option value="Bhadravati">Bhadravati</option>
-													<option value="Mandya">Mandya</option>
-												</select>
-												<input type="date" id="checkin" name="checkin[in]"  ng-model="checkin" placeholder="Check Out" class="col-xs-3 col-sm-3 custom-input"/>
-												<input type="date" id ="checkout" name="checkin[out]"  ng-model="checkout" placeholder="Check Out" class="col-xs-3 col-sm-3 custom-input" />	
-												<select id="guests" name="guests" ng-model="guests" placeholder="Guest" class="col-xs-3 col-sm-3 custom-select">
-													<option value="">Guest</option>
-													<option value="1 Guest">1 Guest</option>
-													<option value="2 Guest">2 Guests</option>
-													<option value="3 Guest">3 Guests</option>
-													<option value="4 Guest">4 Guests</option>
-													<option value="5 Guest">5 Guests</option>
-													<option value="6 Guest">6 Guests</option>
-													<option value="7 Guest">7 Guests</option>
-													<option value="8 Guest">8 Guests</option>
-													<option value="9 Guest">9 Guests</option>
-													<option value="10 Guest">10 Guests</option>
-												</select>
-											</div>
-											<span class="gapt" style="clear:both;">&nbsp;</span>
-											<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 column-row">
-												<select id="budget" name="budget" ng-model="budget" class="col-xs-3 col-sm-3 custom-select">
-													<option value="">Choose your Budget</option>
-													<option value="10000/- to 20000/-">10000/- to 20000/-</option>
-													<option value="20000/- to 30000/-">20000/- to 30000/-</option>
-													<option value="30000/- to 40000/-">30000/- to 40000/-</option>
-													<option value="40000/- to 50000/-">40000/- to 50000/-</option>
-													<option value="50000/- to 60000/-">50000/- to 60000/-</option>
-													<option value="60000/- to 70000/-">60000/- to 70000/-</option>
-													<option value="70000/- to 80000/-">70000/- to 80000/-</option>
-													<option value="80000/- to 90000/-">80000/- to 90000/-</option>
-													<option value="90000/- to 100000/-">90000/- to 100000/-</option>
-												</select>
-												<div class="col-lg-9 col-xm-9 col-md-9 col-sm-9 column-cell-rt" style="padding: 0px 0px 0px 0px;">
-													<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding: 0px 0px 0px 0px;">
-														<div class="star col-lg-5 col-xm-5 col-md-5 col-sm-5">
-															<span>Choose your Accomm Type</span>
-														</div>
-														<div class="col-lg-7 col-xm-7 col-md-7 col-sm-7">
-															<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 col-lg-push-2 col-xm-push-2 col-md-push-2 col-sm-push-2" style="padding: 0px 0px 0px 0px;">
-																<label class="starlabel"><span>Resort</span>&nbsp;<input type="radio" name="star" id="star" ng-model="star" value="Resort" /></label>
-															</div>
-															<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 col-lg-push-2 col-xm-push-2 col-md-push-2 col-sm-push-2" style="padding: 0px 0px 0px 0px;">
-																<label class="starlabel"><span>Home Stay</span>&nbsp;<input type="radio" name="star" id="star" ng-model="star" value="Home Stay" /></label>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<span class="gapt" style="clear:both;">&nbsp;</span>
-											<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 column">
-												<input type="submit" class="col-xs-12 col-sm-12 custom-button text-center" name="cyvp" id="cyvp" ng-click="cfcyvp()" value="CREATE YOUR VACATION PACKAGE" />
-											</div>
-										</div>
-									</form>							
-									<div class="clear">&nbsp;</div>
-									
-								</div>
-							</div>	
-						</div>
-						<!-- Resort Form display END-->
-						<div class="clear">&nbsp;</div>
-						
 					</div>
+				<!-- Resort Form display END-->
+				<div class="clear">&nbsp;</div>
+				
+				<div class="maxwidth" ng-show="swcyvp">
+	<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 white text-center" style="padding-top: 10px;">
+		<label>Choose One</label>
+	</div>
+	<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding-top: 10px;" ng-show="swcyvp_one">
+		<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+			<a href="#"><%= image_tag "eco.jpg" ,:class=>"img-responsive" %></a>
+		</div>
+		<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+			<a href="#"><%= image_tag "wellness.jpg" ,:class=>"img-responsive" %></a>
+		</div>
+		<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+			<a href="#"><%= image_tag "heritage.jpg" ,:class=>"img-responsive" %></a>
+		</div>
+		<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+			<a href="#"><%= image_tag "family.jpg" ,:class=>"img-responsive" %></a>
+		</div>
+		<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+			<a href="#"><%= image_tag "adventure.jpg" ,:class=>"img-responsive" %></a>
+		</div>
+		<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+			<a href="#" ng-click="cfcyvp_two()"><%= image_tag "romantic.jpg" ,:class=>"img-responsive" %></a>
+		</div>
+	</div>
+</div>
+
+<div class="clear">&nbsp;</div>
+
+<div class="maxwidth" ng-show="swcyvp_two">
+	<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding-top: 10px;">
+		<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:0;">
+			<div class="col-lg-3 col-xm-3 col-md-3 col-sm-3 white text-left">
+				<label>YOUR CHOICES</label>
+			</div>
+			<div class="col-lg-9 col-xm-9 col-md-9 col-sm-9 text-right">
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:0;">
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "eco-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "wellness-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "heritage-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "family-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "adventure-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "romantic.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:0;">
+			<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 white text-center" style="padding: 5px 0px 5px 0px;">
+				<label>CHOOSE YOUR ACTIVITIES</label>
+			</div>
+			<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 cya-tr-to" style="padding: 0px;">
+				<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+					<a href="#"><%= image_tag "kaykeying.jpg" ,:class=>"img-responsive" %></a>
+				</div>
+				<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+					<a href="#"><%= image_tag "scuba.jpg" ,:class=>"img-responsive" %></a>
+				</div>
+				<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+					<a href="#"><%= image_tag "paragliding.jpg" ,:class=>"img-responsive" %></a>
+				</div>
+				<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+					<a href="#"><%= image_tag "nature.jpg" ,:class=>"img-responsive" %></a>
+				</div>
+				<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+					<a href="#"><%= image_tag "golf.jpg" ,:class=>"img-responsive" %></a>
+				</div>
+				<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+					<a href="#" ng-click="cfcyvp_three()"><%= image_tag "others.jpg" ,:class=>"img-responsive" %></a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
+<div class="maxwidth" ng-show="swcyvp_three">
+	<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding-top: 10px;">
+		<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:0;">
+			<div class="col-lg-3 col-xm-3 col-md-3 col-sm-3 white text-left">
+				<label>YOUR CHOICES</label>
+			</div>
+			<div class="col-lg-9 col-xm-9 col-md-9 col-sm-9 text-right">
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:0;">
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "eco-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "wellness-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "heritage-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "family-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "adventure-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "romantic.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding: 10px 0px 0px 0px;">
+			<div class="col-lg-3 col-xm-3 col-md-3 col-sm-3 white text-left">
+				<label>YOUR ACTIVITIES</label>
+			</div>
+			<div class="col-lg-9 col-xm-9 col-md-9 col-sm-9 text-right">
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:0;">
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "kaykeying-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "scuba-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "paragliding-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "nature-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "golf-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "others.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+				</div>
+			</div>
+		</div>	
+		
+		<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:0;">
+			<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 white text-center">
+				<label>CHOOSE YOUR AMENITIES</label>
+			</div>
+			<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 cya-tr-to" style="padding: 0px;">
+				<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+					<a href="#"><%= image_tag "spa.jpg" ,:class=>"img-responsive" %></a>
+				</div>
+				<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+					<a href="#"><%= image_tag "jacuzzi.jpg" ,:class=>"img-responsive" %></a>
+				</div>
+				<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+					<a href="#"><%= image_tag "swimming.jpg" ,:class=>"img-responsive" %></a>
+				</div>
+				<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+					<a href="#"><%= image_tag "candle.jpg" ,:class=>"img-responsive" %></a>
+				</div>
+				<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+					<a href="#"><%= image_tag "cafe.jpg" ,:class=>"img-responsive" %></a>
+				</div>
+				<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2">
+					<a href="#" ng-click="cfcyvp_four()"><%= image_tag "others3.jpg" ,:class=>"img-responsive" %></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
+<div class="maxwidth" ng-show="swcyvp_four">
+	<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding-top: 10px;">
+		<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:0;">
+			<div class="col-lg-3 col-xm-3 col-md-3 col-sm-3 white text-left">
+				<label>YOUR CHOICES</label>
+			</div>
+			<div class="col-lg-9 col-xm-9 col-md-9 col-sm-9 text-right">
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:0;">
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "eco-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "wellness-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "heritage-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "family-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "adventure-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "romantic.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding: 10px 0px 0px 0px;">
+			<div class="col-lg-3 col-xm-3 col-md-3 col-sm-3 white text-left">
+				<label>YOUR ACTIVITIES</label>
+			</div>
+			<div class="col-lg-9 col-xm-9 col-md-9 col-sm-9 text-right">
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:0;">
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "kaykeying-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "scuba-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "paragliding-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "nature-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "golf-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "others.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 text-left" style="padding: 10px 0px 0px 0px;">
+			<div class="col-lg-3 col-xm-3 col-md-3 col-sm-3 white text-left">
+				<label>YOUR AMENITIES</label>
+			</div>
+			<div class="col-lg-9 col-xm-9 col-md-9 col-sm-9 text-right">
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:0;">
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "spa-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "jacuzzi-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "swimming-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "candle-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "cafe-shaded.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+					<div class="col-lg-2 col-xm-2 col-md-2 col-sm-2" style="padding: 0px 5px 0px 0px;">
+						<a href="#"><%= image_tag "others3.jpg" ,:class=>"img-responsive" %></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 white text-center" style="padding-top: 30px;">
+			<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 col-lg-offset-4 col-xm-offset-4 col-md-offset-4 col-sm-offset-4" style="padding:0;">
+				<input type="submit" class="orn-btn-active" name="explore" id="explore" value="EXPLORE OUR RECOMMENDATION" />
+			</div>
+		</div>
+	</div>
+</div>
+<div id="light" class="white_content">
+ 	
+ 	
+</div>
+<div id="fade" class="black_overlay"></div>
+				
+				
+				
+				
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="fullcontentwrapper">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12">
-				<div id="content_wrapper">
-					<div class="content">
-						
-						<div class="col-lg-6 col-xm-6 col-md-6 col-sm-6" style="padding-right:0px;">
-							<div class="box1">
-								<div class="toptext">
-									Hosting opens up a world of opportunity
-								</div>
-								<div class="paratext">
-								Earn money sharing your extra space with travelers.
-								</div>
-								<div class="orrangebutton">
-									See What You Can Earn
-								</div>
-								<div class="clear"></div>
-							</div>
+			<div id="content_wrapper" class="col-lg-12 col-xm-12 col-md-12 col-sm-12">
+				<div class="content">
+					<div class="col-lg-6 col-xm-6 col-md-6 col-sm-6 box1">
+						<div class="toptext">
+							Hosting opens up a world of opportunity
 						</div>
-						<div class="col-lg-6 col-xm-6 col-md-6 col-sm-6" style="padding-left:0px;">
-							<div class="box2">
-								<%= image_tag "lady.jpg" ,:class => "img-responsive"%>
-							</div>
-						</div>	
-						
-						<div class="clear"></div>
-						<div class="col-md-12" style="padding-top:30px;">
-						<div class="justforpara" >
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+						<div class="paratext">
+						Earn money sharing your extra space with travellers.
 						</div>
+						<div class="orrangebutton">
+							See What You Can Earn
 						</div>
-						<div class="box3wrapper">
-							<div class="col-md-4">
-								<div class="box3right">
-									<%= image_tag "bangalore_resort1.jpg" ,:class => "img-responsive"%>			
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="box3middle">
-									<%= image_tag "explore_beaches-1.jpg" ,:class => "img-responsive"%>					
-								</div>
-							</div>	
-							<div class="col-md-4">
-								<div class="box3left">
-									<%= image_tag "heritage_tours-1.jpg" ,:class => "img-responsive"%>	
-								</div>
-							</div>	
-							<div class="clear">
-							</div>
-						</div>
-						<div class="col-md-4">
-						</div>
-						<div class="col-md-4"style="margin:0px;padding:0px; ,:class => "img-responsive"">
-							<div class="buttongray">
-							See all destinations
-							</div>
-						</div>
-						<div class="col-md-4"style="margin:0px;padding:0px;">
-						</div>
-						<div class="col-md-12" style="padding-top:50px;">
-						<div class="justforpara">
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-						</div>
-						</div>
-						<div class="col-md-12">
-							<div class="destinationhead">
-								Destinations
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="destinationsub">
-								Discover new, Inspiring Places Close to Home. 
-							</div>
-						</div>	
-						<div class="clear"></div>
-						<div class="box4wrapper">
-							<div class="col-md-8">
-								<div class="box4right">
-									<%= image_tag "coorg-1.jpg" ,:class => "img-responsive"%>	
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="box4left">
-									<%= image_tag "bylakuppe-1.jpg" ,:class => "img-responsive"%>	
-								</div>
-							</div>	
-							<div class="clear"></div>
-						</div>
-						
-						<div class="box3wrapper">
-							<div class="col-md-4">
-								<div class="box3right">
-									<%= image_tag "chikmangalur-1.jpg" ,:class => "img-responsive"%>				
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="box3middle">
-									<%= image_tag "mysore-1.jpg" ,:class => "img-responsive"%>			
-								</div>
-							</div>	
-							<div class="col-md-4">
-								<div class="box3left">
-									<%= image_tag "bangalore-1.jpg" ,:class => "img-responsive"%>			
-								</div>
-							</div>	
-							<div class="clear">
-							</div>
-						</div>
-						<div class="box5wrapper">
-							<div class="col-md-4">
-								<div class="box3right">
-									<%= image_tag "sakleshpur-1.jpg" ,:class => "img-responsive"%>
-								</div>
-							</div>	
-							<div class="col-md-8">
-								<div class="box5right">
-									<%= image_tag "hampi-1.jpg",:class => "img-responsive"%>	
-								</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="box3wrapper">
-							<div class="col-md-4">
-								<div class="box3right">
-									<%= image_tag "romantic_holiday1.jpg",:class => "img-responsive"%>				
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="box3middle">
-									<%= image_tag "channapatna1.jpg",:class => "img-responsive"%>		
-								</div>
-							</div>	
-							<div class="col-md-4">
-								<div class="box3left">
-									<%= image_tag "nrityagram1.jpg",:class => "img-responsive"%>			
-								</div>
-							</div>	
-							<div class="clear">
-							</div>
+					</div>
+					<div class="col-lg-6 col-xm-6 col-md-6 col-sm-6" style="padding:0px;">
+						<div class="box2">
+							<%= image_tag "lady.jpg",:class=>"img-response" %>
 						</div>
 					</div>
 				</div>
+				
+				<div class="clear"></div>
+				
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:30px 0 0 0;">
+					<div class="justforpara" >
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+					</div>
+				</div>
+				
+				<div class="clear"></div>
+				
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:0;">
+					<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 text-left" style="padding:0;">
+						<%= image_tag "bangalore_resort1.jpg",:class=>"img-response" ,:alt=>"bangalore-resort" %>	
+					</div>
+					<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 text-center" style="padding:0;">
+						<%= image_tag "explore_beaches-1.jpg",:class=>"img-response" ,:alt=>"explore-beaches" %>
+					</div>	
+					<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 text-right" style="padding:0;">
+						<%= image_tag "heritage_tours-1.jpg",:class=>"img-response" ,:alt=>"heritage-tours" %>
+					</div>	
+				</div>
+				
+				<div class="clear"></div>
+				
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 text-center" style="padding:0;">
+					<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 col-lg-offset-4 col-xm-offset-4 col-md-offset-4 col-sm-offset-4" style="padding:0;">
+						<div class="buttongray">See all destinations</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding:50px 0 0 0;">
+					<div class="justforpara">
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+					</div>
+				</div>
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12">
+					<div class="destinationhead">
+						Destinations
+					</div>
+				</div>
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12">
+					<div class="destinationsub">
+						Discover new, Inspiring Places Close to Home. 
+					</div>
+				</div>	
+				
+				<div class="clear"></div>
+				
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 box4wrapper" style="padding: 0;">
+					<div class="col-lg-8 col-xm-8 col-md-8 col-sm-8 text-left" style="padding: 0;">
+						<%= image_tag "coorg-1.jpg",:class=>"img-response" ,:alt=>"coorg" %>
+					</div>
+					<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 text-right" style="padding: 0;">
+						<%= image_tag "bylakuppe-1.jpg",:class=>"img-response" ,:alt=>"bylakuppe" %>
+					</div>	
+				</div>
+				
+				<div class="clear"></div>
+				
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 box3wrapper" style="padding: 0;">
+					<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 text-left" style="padding: 0;">
+						<%= image_tag "chikmangalur-1.jpg",:class=>"img-response" ,:alt=>"chikmangalur" %>
+					</div>
+					<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 text-center" style="padding:0;">
+						<%= image_tag "mysore-1.jpg",:class=>"img-response" ,:alt=>"mysore" %>
+					</div>	
+					<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 text-right" style="padding: 0;">
+						<%= image_tag "bangalore-1.jpg",class=>"img-response" ,:alt=>"bangalore" %>
+					</div>
+				</div>
+				
+				<div class="clear"></div>
+				
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 box5wrapper" style="padding:0;">
+					<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 text-left" style="padding:0;">
+						<%= image_tag "sakleshpur-1.jpg",:class=>"img-response" ,:alt=>"sakleshpur" %>
+					</div>	
+					<div class="col-lg-8 col-xm-8 col-md-8 col-sm-8 text-right" style="padding: 0;">
+						<%= image_tag "hampi-1.jpg",:class=>"img-response" ,:alt=>"hampi" %>
+					</div>
+				</div>
+				
+				<div class="clear"></div>
+				
+				<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12 box3wrapper" style="padding: 0;">
+					<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 text-left" style="padding:0;">
+						<%= image_tag "romantic_holiday1.jpg",:class=>"img-response" ,:alt=>"romantic_holiday" %>
+					</div>
+					<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 text-center" style="padding: 0;">
+						<%= image_tag "channapatna1.jpg",:class=>"img-response" ,:alt=>"channapatna" %>
+					</div>	
+					<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4 text-right" style="padding: 0;">
+						<%= image_tag "nrityagram1.jpg",:class=>"img-response" ,:alt=>"nrityagram" %>
+					</div>
+				</div>
+				
+				<div class="clear"></div>
 			</div>
 		</div>
 	</div>	
 </div>
 
-
 <div id="footer_wrapper">
 	<div class="footer">
 		<div class="row">
-			<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4">
-				<div class="footerright1">
-					<ul>
-						<li><div class="hedingfooter">Company</div></li>
-						<li><div class="footertext">About</div></li>
-						<li><div class="footertext">Careers</div></li>
-						<li><div class="footertext">Press</div></li>
-						<li><div class="footertext">Blog</div></li>
-						<li><div class="footertext">Help</div></li>
-						<li><div class="footertext">Policies</div></li>
-						<li><div class="footertext">Disaster Response</div></li>
-						<li><div class="footertext">Terms & Privacy</div></li>
-					</ul>
+			<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding: 0;">
+				<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4" style="padding: 0;">
+					<div class="footerright1">
+						<strong>Company</strong>
+						<ul>
+							<li><a href="#">About</a></li>
+							<li><a href="#">Careers</a></li>
+							<li><a href="#">Press</a></li>
+							<li><a href="#">Blog</a></li>
+							<li><a href="#">Help</a></li>
+							<li><a href="#">Policies</a></li>
+							<li><a href="#">Disaster Response</a></li>
+							<li><a href="#">Terms & Privacy</a></li>
+						</ul>
+					</div>
 				</div>
-			</div>
-			<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4">
-				<div class="footerright1">
-					<ul>
-						<li><div class="hedingfooter">Discover</div></li>
-						<li><div class="footertext">Trust & Safety</div></li>
-						<li><div class="footertext">Invite Friends</div></li>
-						<li><div class="footertext">Gift Cards</div></li>
-						<li><div class="footertext">Our Picks</div></li>
-						<li><div class="footertext">Mobile</div></li>
-						<li><div class="footertext">Site Maps</div></li>
-					</ul>
+				<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4" style="padding: 0;">
+					<div class="footerright1">
+						<strong>Discover</strong>
+						<ul>
+							<li><a href="#">Trust & Safety</a></li>
+							<li><a href="#">Invite Friends</a></li>
+							<li><a href="#">Gift Cards</a></li>
+							<li><a href="#">Our Picks</a></li>
+							<li><a href="#">Mobile</a></li>
+							<li><a href="#">Site Maps</a></li>
+						</ul>
+					</div>
 				</div>
-			</div>
-			<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4">	
-				<div class="footerright1">
-					<ul>
-						<li><div class="hedingfooter">Hosting</div></li>
-						<li><div class="footertext">Why Host</div></li>
-						<li><div class="footertext">Hospitality</div></li>
-						<li><div class="footertext">Responsible Hosting</div></li>
-						<li><div class="footertext">Home Safety</div></li>
-					</ul>
+				<div class="col-lg-4 col-xm-4 col-md-4 col-sm-4" style="padding: 0;">	
+					<div class="footerright1">
+						<strong>Hosting</strong>
+						<ul>
+							<li><a href="#">Why Host</a></li>
+							<li><a href="#">Hospitality</a></li>
+							<li><a href="#">Responsible Hosting</a></li>
+							<li><a href="#">Home Safety</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>	
 	</div>
 	<div class="clear"></div>
 	<div class="row">
-		<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12">
-			<div class="joinus">
-				Join Us On
-			</div>
+		<div class="col-lg-12 col-xm-12 col-md-12 col-sm-12" style="padding: 0;">
+			<div class="joinus">Join Us On</div>
 			<div class="socialimages">
-				<%= image_tag "icon-fb.png"%>	
-				<%= image_tag "icon-google.png"%>	
-				<%= image_tag "icon-instagram.png"%>
-				<%= image_tag "icon-pinterest.png"%>	
-				<%= image_tag "icon-twitter.png"%>	
+				<a href="https://www.facebook.com/" target="_blank"><%= image_tag "icon-fb.png"  %></a>
+				<a href="https://plus.google.com/" target="_blank"><%= image_tag "icon-google.png" %></a>
+				<a href="https://www.instagram.com/" target="_blank"><%= image_tag "icon-instagram.png" %></a>
+				<a href="https://in.pinterest.com/" target="_blank"><%= image_tag "icon-pinterest.png"  %></a>
 			</div>
 		</div>
 	</div>		
 </div>	
+
 
 </div>
